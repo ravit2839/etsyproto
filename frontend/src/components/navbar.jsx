@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 
 export default function AppNavbar({ hasSearch = true }) {
   const handleLogout = () => {
+    window.localStorage.clear();
     window.location.replace("/login");
   };
 

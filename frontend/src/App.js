@@ -1,9 +1,15 @@
+import { CartProvider } from "./contexts/cart-context";
+import { FavProvider } from "./contexts/fav-context";
 import AppRoutes from "./routes";
 
 function App() {
   return (
     <>
-      <AppRoutes />
+      <FavProvider>
+        <CartProvider>
+          <AppRoutes />
+        </CartProvider>
+      </FavProvider>
     </>
   );
 }

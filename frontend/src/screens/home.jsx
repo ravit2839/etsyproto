@@ -1,13 +1,14 @@
 import { Card, Button, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useHistory, Link } from "react-router-dom";
+import ListItems from "../components/home/list-items";
 import BaseLayout from "../layouts/base";
 
 export default function HomeScreen() {
   return (
     <BaseLayout>
-      <SearchResults />
+      {/* <SearchResults /> */}
       <div className="row g-3">
-        <Items />
+        <ListItems />
       </div>
     </BaseLayout>
   );
@@ -16,7 +17,7 @@ export default function HomeScreen() {
 function SearchResults() {
   const itemsCount = [1, 2, 3, 4];
   const imageURL =
-    "https://i.imgur.com/qzJWbOU_d.webp?maxwidth=1520&fidelity=grand";
+    "https://media.istockphoto.com/photos/bakery-chef-prepare-pizza-picture-id1291299956?b=1&k=20&m=1291299956&s=170667a&w=0&h=Ys_FLtdY0Uzc7yTQl6JzvCHTQ3eRAuqNNU4x8EX1FB8=";
   const history = useHistory();
 
   const handleViewItem = () => {
