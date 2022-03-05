@@ -17,20 +17,20 @@ app.use(catchUnhandleExceptions);
 async function bootstrap() {
   console.log("Please wait for the server and db to run");
 
-  try {
+  // try {
     if (!fs.existsSync("./uploads")) {
       console.log("upload dir not exists");
       fs.mkdirSync("./uploads");
     }
 
     await db.sequelize.sync({ force: config.get("db.forceSync") });
-    const PORT = process.env.PORT || 8000;
-    app.listen(PORT, () => {
-      console.log(`App is listening on the port ${PORT}...`);
+    const PORT = process.env.PORT || 3001;
+    
+    app.on('error', function (e) {
+      app.listen(8080)
     });
-  } catch (err) {
-    console.log("Some error while bootstrap the app ...", err);
-  }
+    app.listen(8000);
+  
 }
-
-bootstrap();
+bootstrap()
+module.exports= bootstrap

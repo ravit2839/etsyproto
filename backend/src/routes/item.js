@@ -11,5 +11,5 @@ router.post(
   uploads.fields([{ name: "featured", maxCount: 1 }]),
   itemController.createItem
 );
-
+router.patch("/:id", itemController.updateItem);
 module.exports = router;

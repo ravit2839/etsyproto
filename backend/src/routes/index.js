@@ -9,7 +9,7 @@ const purchaseRoutes = require("./purchase");
 const itemCategoryRoutes = require("./item-category");
 
 const router = express.Router();
-router.get("/", (req, res) => res.send("Ecommerece Backend App"));
+router.get("/", (req, res) => res.send("Etsy Proto"));
 router.use("/auth", authRoutes);
 router.use("/user", userRoutes);
 router.use("/shop", shopRoutes);
