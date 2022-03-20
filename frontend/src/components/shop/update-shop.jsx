@@ -88,7 +88,7 @@ export default function UpdateShop({ onShopReceived }) {
         </div>
         {updateShop.isLoading && <AppLoading />}
         {!updateShop.isLoading && (
-          <button className="btn btn-success mt-3" onClick={handleSubmit}>
+          <button  style={{backgroundColor:"burlywood", color:"black"}} className="btn btn-success mt-3" onClick={handleSubmit}>
             Save Changes
           </button>
         )}

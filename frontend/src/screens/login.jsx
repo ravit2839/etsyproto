@@ -31,7 +31,7 @@ export default function LoginScreen() {
   return (
     <div className="container-fluid bg-light text-dark mt-3 py-3">
       <div className="row justify-content-center align-items-center">
-        <h2 className="text-center">Login</h2>
+        <h2 className="text-center" style={{marginBottom:"350px"}}>Sigin</h2>
       </div>
       <hr />
       <div className="row justify-content-center align-items-center h-100">
@@ -64,10 +64,9 @@ export default function LoginScreen() {
               <FieldError field="password" />
             </div>
             <div className="form-group">
-              <button className="btn btn-primary btn-sm">Login</button>
+              <button className="btn btn-primary btn-sm" style={{backgroundColor:'orange', borderRadius:'15px'}}>Login</button>
               <button
-                className="btn btn-secondary btn-sm mx-3"
-                onClick={handleRegister}
+                className="btn btn-secondary btn-sm mx-3"style={{backgroundColor:'black',borderRadius:'15px' }} onClick={handleRegister} 
               >
                 Register
               </button>

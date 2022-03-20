@@ -24,8 +24,8 @@ export default function RegisterScreen() {
 
   return (
     <div className="container-fluid bg-light text-dark mt-3 py-3">
-      <div className="row justify-content-center align-items-center">
-        <h2 className="text-center">Register</h2>
+      <div className="row justify-content-center align-items-center" style={{marginTop: "-100px"}}>
+        <h2 className="text-center" style={{marginBottom: "315px"}}>Register</h2>
       </div>
       <hr />
       <div className="row justify-content-center align-items-center h-100">

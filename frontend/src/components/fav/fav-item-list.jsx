@@ -80,7 +80,7 @@ function FavItem({ item, favItems, onToggleFav }) {
             {isLoading && <AppLoading />}
             {!isLoading && (
               <i
-                class={`${favIconClassname()} float-left pointer`}
+                className={`${favIconClassname()} float-left pointer`}
                 aria-hidden="true"
                 onClick={handleToggleFavItem}
               />

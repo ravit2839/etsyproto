@@ -5,6 +5,7 @@ const CartContext = React.createContext({
   cart: {},
   onAddToCart: () => {},
   onRemoveFromCart: () => {},
+  onResetCart: () => {},
 });
 
 export function CartProvider({ children }) {
@@ -28,12 +29,17 @@ export function CartProvider({ children }) {
     setCart(updatedCart);
   };
 
+  const handleResetCart = () => {
+    setCart({});
+  };
+
   return (
     <CartContext.Provider
       value={{
         cart,
         onAddToCart: handleAddToCart,
         onRemoveFromCart: handleRemoveFromCart,
+        onResetCart: handleResetCart,
       }}
     >
       {children}

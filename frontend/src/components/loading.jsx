@@ -1,3 +1,3 @@
 export default function AppLoading() {
-  return <div className="spinner-border spinner-border-sm" />;
+  return <div className="spinner-grow  spinner-border-sm"  />;
 }

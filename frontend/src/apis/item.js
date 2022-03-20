@@ -8,6 +8,14 @@ export function getItem(id) {
   return api.get("/item/" + id);
 }
 
+export function updateItem(id, price) {
+  return api.patch("/item/" + id, { price });
+}
+
+export function filterItems(filterOptions) {
+  return api.post("/item/filter", filterOptions);
+}
+
 export function createNewItem(item) {
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   let fd = new FormData();
@@ -17,11 +25,16 @@ export function createNewItem(item) {
 }
 
 function setFieldsToFormData(fd, fields) {
+  // console.log("fields: ", fields);
+
   for (const key in fields) {
-    if (fields[key] === Array) {
-      for (const item in fields[key]) {
+    // console.log("key: ", key);
+    // console.log("__: ", fields[key]);
+    if (Array.isArray(fields[key])) {
+      fields[key].forEach((item) => {
+        // console.log("item: ", item);
         fd.append(key, item);
-      }
+      });
     } else {
       fd.append(key, fields[key]);
     }

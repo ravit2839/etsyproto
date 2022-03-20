@@ -112,7 +112,7 @@ export default function ProfileScreen() {
             />
             <FieldError field="phone" />
           </div>
-          <div class="form-group mt-3">
+          <div className="form-group mt-3">
             <label for="about">About</label>
             <Field
               component="textarea"
@@ -122,15 +122,8 @@ export default function ProfileScreen() {
               name="about"
             />
             <FieldError field="about" />
-
-            {/* <textarea
-              class="form-control"
-              rows="2"
-              id="about"
-              name="about"
-            ></textarea> */}
           </div>
-          <div class="form-group mt-3">
+          <div className="form-group mt-3">
             <label for="address">Address*</label>
             <Field
               component="textarea"
@@ -141,10 +134,10 @@ export default function ProfileScreen() {
             />
             <FieldError field="address" />
           </div>
-          <div class="form-group mt-3">
+          <div className="form-group mt-3">
             <label for="country">Select Country</label>
             <Field
-              class="form-control"
+              className="form-control"
               id="country"
               name="country"
               component="select"
@@ -158,7 +151,7 @@ export default function ProfileScreen() {
 
           {api.isLoading && <AppLoading />}
           {!api.isLoading && (
-            <button type="submit" className="btn btn-success mt-3">
+            <button  style={{backgroundColor:"burlywood", color:"black"}} type="submit" className="btn btn-success mt-3 mb-5">
               Save Changes
             </button>
           )}

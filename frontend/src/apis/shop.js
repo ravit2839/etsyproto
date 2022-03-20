@@ -1,5 +1,9 @@
 import api from ".";
 
+export function getSingleShopDetail(shopId) {
+  return api.get("/shop/single-shop/" + shopId);
+}
+
 export function isShopExists() {
   return api.get("/shop/is-shop-exists");
 }

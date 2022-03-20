@@ -1,8 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Card, Button, ListGroup, ListGroupItem, Modal } from "react-bootstrap";
 import BaseLayout from "../layouts/base";
-import { Link } from "react-router-dom";
 import UpdateShop from "../components/shop/update-shop";
 import ItemModal from "../components/shop/item-modal";
 import ShopItems from "../components/shop/shop-item-list";
@@ -11,12 +8,19 @@ export default function ShopScreen() {
   const [shop, setShop] = useState();
   const [showItemModal, setShowItemModal] = useState(false);
   const [newItem, setNewItem] = useState();
+  const [searchVal, setSearchVal] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchVal(e.target.value);
+  };
 
   const handleShopUpdate = (shop) => {
     setShop(shop);
   };
 
-  const handleItemAdded = (item) => {};
+  const handleItemAdded = (item) => {
+    setNewItem(item);
+  };
 
   return (
     <BaseLayout hasSearch={false}>
@@ -32,10 +36,13 @@ export default function ShopScreen() {
               type="text"
               className="form-control"
               placeholder="Search items .."
+              value={searchVal}
+              onChange={handleSearch}
             />
           </div>
           <div className="col-md-6">
             <button
+               style={{backgroundColor:"burlywood", color:"black"}}
               className="btn btn-primary"
               onClick={() => setShowItemModal(true)}
             >
@@ -50,7 +57,7 @@ export default function ShopScreen() {
           </div>
         </div>
         <div className="row g-3 mt-2">
-          <ShopItems shop={shop} newItem={newItem} />
+          <ShopItems shop={shop} newItem={newItem} searchVal={searchVal} />
         </div>
       </div>
     </BaseLayout>

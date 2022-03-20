@@ -9,9 +9,9 @@ import { AppLoading } from "../components";
 import { useFavContext } from "../contexts/fav-context";
 import { useCartContext } from "../contexts/cart-context";
 import { getImageURL } from "../utils/app";
-
-const imageURL =
-  "https://images.unsplash.com/photo-1645917864901-1fa7731b9af6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60";
+import "./css/item.css"
+// const imageURL =
+//   "https://images.unsplash.com/photo-1645917864901-1fa7731b9af6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60";
 
 export default function ItemScreen() {
   const { id } = useParams();
@@ -35,7 +35,7 @@ export default function ItemScreen() {
     <BaseLayout>
       <div className="row">
         <div className="col-md-6">
-          <ItemImagesCarousel itemImages={item.ItemImages} />
+          <ItemImagesCarousel featuredImage={item.featuredImage} />
         </div>
         <div className="col-md-6">
           <ListGroup>
@@ -45,7 +45,7 @@ export default function ItemScreen() {
             <ListGroup.Item>
               <p>
                 <span className="fw-bold">Shop Name:</span>
-                <Link to="/shop" className="mx-2">
+                <Link to={`/shop/${item.Shop.id}`} className="mx-2">
                   {item.Shop.name}
                 </Link>
               </p>
@@ -118,30 +118,24 @@ function Fav({ item }) {
   );
 }
 
-function ItemImagesCarousel({ itemImages }) {
-  if (itemImages.length === 0) {
-    return <p className="alert alert-info">No Images for this item</p>;
+function ItemImagesCarousel({ featuredImage }) {
+
+  if (featuredImage === 0) {
+    return <p className="alert alert-info">No Image for this item</p>;
   }
 
   return (
     <Carousel>
-      {itemImages.map((itemImg) => (
-        <Carousel.Item>
-          <img
-            src={getImageURL(itemImg.image)}
-            alt="Single Item Image"
-            className="d-block w-100"
-          />
-        </Carousel.Item>
-      ))}
+      <Carousel.Item>
+        <img src={getImageURL(featuredImage)} alt="something" className="d-block w-100"/>
+      </Carousel.Item>
     </Carousel>
   );
 }
 
 function Cart({ item }) {
   const cartCtx = useCartContext();
-  const cartItem = cartCtx.cart[item.id];
-  const [cartValue, setCartValue] = useState(cartItem ? cartItem.quantity : 1);
+  const [cartValue, setCartValue] = useState(1);
 
   const handleIncrement = () => {
     setCartValue((prev) => prev + 1);
@@ -167,15 +161,19 @@ function Cart({ item }) {
             <i class="fa fa-minus" aria-hidden="true" />
           </button>
           <span className="mx-5">{cartValue}</span>
-          <button className="btn btn-primary btn-sm" onClick={handleIncrement}>
-            <i class="fa fa-plus" aria-hidden="true" />
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={handleIncrement}
+            disabled={cartValue >= item.quantity}
+          >
+            <i className="fa fa-plus" aria-hidden="true" />
           </button>
         </ListGroup.Item>
       )}
       {item.quantity > 0 && (
         <ListGroup.Item>
           <div className="d-grid">
-            <Button variant="light" size="lg" onClick={handleAddToCart}>
+            <Button className="addtocart" variant="light" size="lg" onClick={handleAddToCart}>
               Add to Cart
             </Button>
           </div>
@@ -183,7 +181,7 @@ function Cart({ item }) {
       )}
       {item.quantity === 0 && (
         <ListGroup.Item>
-          <i>Item Not Available</i>
+          <strong><i>Item Out of Stock</i></strong>
         </ListGroup.Item>
       )}
     </>

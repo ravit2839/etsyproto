@@ -65,6 +65,11 @@ async function createNewitem(itemFields) {
     let newItem = new db.Item({ ...itemFields });
     newItem = await newItem.save();
 
+    // const itemImages = itemFields.images.map((image) => {
+    //   return { image, itemId: newItem.id };
+    // });
+    // await db.ItemImage.bulkCreate(itemImages, { returning: true });
+
     const item = await db.Item.findByPk(newItem.id, {
       include: db.ItemCategory,
     });

@@ -53,7 +53,7 @@ export default function ShopNameScreen() {
 
     return (
       <p className={`badge bg-${status ? "success" : "danger"}`}>
-        {status ? "Available" : "Not Available"}
+        {status ? "Is Available" : "Already Taken"}
       </p>
     );
   };
@@ -70,7 +70,7 @@ export default function ShopNameScreen() {
     <BaseLayout>
       <div className="text-center">
         <h3>Name your Shop</h3>
-        <p>Choose a memorable name that reflects your style</p>
+        <p>Choose a name</p>
         <hr />
       </div>
       <ServerError error={createShop.error} />
