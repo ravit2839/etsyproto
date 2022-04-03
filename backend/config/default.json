@@ -1,0 +1,25 @@
+{
+  "db": {
+    "username": "root",
+    "password": "Qwerty16",
+    "database": "epsy",
+    "host": "database-2.cquwnyamdglz.us-east-1.rds.amazonaws.com",
+    "port": 3306,
+    "dialect": "mysql",
+    "logging": false,
+    "define": {
+      "freezeTableName": true
+    },
+    "pool": {
+      "max": 500,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+
+    "forceSync": false
+  },
+  "jwt": {
+    "secret": "my-secret-key"
+  }
+}

@@ -1,0 +1,42 @@
+.headr{
+    background-color: rgba(196, 133, 38, 0.678);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top:0;
+    z-index: 100;
+    justify-content: space-around;
+}
+.header_logo{
+    width :80px;
+    height:auto;
+    margin-top: 20px;
+    display:flex;
+    align-items: center;
+    /* flex: 1; */
+}
+
+.me-2{
+    margin-bottom: -15px;
+    height: 30px;
+    width:  500px;
+    padding: 20px;
+    border-radius: 1.625rem;
+    background: #f5f5f5;
+}
+
+.header_logo{
+    width :80px;
+    height:auto;
+    margin-top: 20px;
+    display:flex;
+    align-items: center;
+    /* flex: 1; */
+}
+
+/* .headerOptionfav{
+    margin-left: auto;
+} */
+.loggr{
+    margin-right: 300px;
+}

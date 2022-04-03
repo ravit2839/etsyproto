@@ -1,0 +1,32 @@
+.row {
+    display: flex;
+    width: 100%;
+    margin: -10px;
+    height: 500px;
+    margin-bottom: -100px;
+    
+}
+
+.addtocart{
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+}
+
+.mx-2{
+    color: black;
+}
+ 
+.list-group-item{
+    border: none;
+    padding: 13px 10px;
+    margin-bottom: 10px;
+}
+
+.carousel-control-next{
+    display: none;
+}
+
+.carousel-control-prev{
+    display: none;
+}

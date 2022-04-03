@@ -1,0 +1,39 @@
+.shopee{
+    background-color: black;
+    
+}
+
+
+
+.card{
+    
+    background-color:floralwhite;
+    border-radius: 10px;
+    margin-top: -30px;
+    z-index: +1;
+}
+ /* .form-control{
+    display: flex;
+    width: 100px;
+    height: 50px;
+}  */
+
+.lmao{
+    display: flex;
+}
+
+.row{
+    display: flex;
+    margin-bottom: -400px;
+    /* background-color:burlywood; */
+    border-radius: 40px;
+}
+
+.col-md-12{
+    border-radius: 50%;
+    
+}
+
+.col-md-5{
+    margin-bottom: -100px;
+}
