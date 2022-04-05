@@ -6,6 +6,7 @@ import "nprogress/nprogress.css";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+<<<<<<< HEAD
 import { Provider } from "react-redux";
 import { store } from "./store";
 
@@ -16,6 +17,14 @@ ReactDOM.render(
         <App />
       </Router>
     </Provider>
+=======
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Router>
+      <App />
+    </Router>
+>>>>>>> origin/main
   </React.StrictMode>,
   document.getElementById("root")
 );

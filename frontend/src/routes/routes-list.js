@@ -11,7 +11,10 @@ import ShopScreen from "../screens/shop";
 import ShopNameScreen from "../screens/shop-name";
 import ShopViewScreen from "../screens/shop-view";
 import EditItemScreen from "../screens/edit-item";
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 const PUBLIC_ROUTES = [
   { path: "/login", Component: LoginScreen },
   { path: "/register", Component: RegisterScreen },

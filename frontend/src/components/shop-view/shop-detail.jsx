@@ -12,7 +12,11 @@ export default function ShopDetail({ shop }) {
               </p>
             )}
             {shop.image && (
+<<<<<<< HEAD
               <img src={shop.image} alt="Shop Image" width="200" />
+=======
+              <img src={getImageURL(shop.image)}  alt="Shop Image" width="200" />
+>>>>>>> origin/main
             )}
           </div>
         </div>

@@ -70,7 +70,11 @@ export default function ShopNameScreen() {
     <BaseLayout>
       <div className="text-center">
         <h3>Name your Shop</h3>
+<<<<<<< HEAD
         <p>Choose a memorable name that reflects your style</p>
+=======
+        <p>Choose a name</p>
+>>>>>>> origin/main
         <hr />
       </div>
       <ServerError error={createShop.error} />

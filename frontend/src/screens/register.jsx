@@ -24,8 +24,13 @@ export default function RegisterScreen() {
 
   return (
     <div className="container-fluid bg-light text-dark mt-3 py-3">
+<<<<<<< HEAD
       <div className="row justify-content-center align-items-center" style={{marginTop: "-90px"}} >
         <h2 className="text-center" style={{marginBottom: "330px"}} >Register</h2>
+=======
+      <div className="row justify-content-center align-items-center" style={{marginTop: "-100px"}}>
+        <h2 className="text-center" style={{marginBottom: "315px"}}>Register</h2>
+>>>>>>> origin/main
       </div>
       <hr />
       <div className="row justify-content-center align-items-center h-100">
@@ -67,9 +72,14 @@ export default function RegisterScreen() {
               <FieldError field="password" />
             </div>
             <div className="form-group">
+<<<<<<< HEAD
               <button className="btn btn-primary btn-sm" style={{backgroundColor:'black', borderRadius:'15px'}}>Register</button>
               <button
                 style={{backgroundColor:'orange', borderRadius:'15px'}}
+=======
+              <button className="btn btn-primary btn-sm">Register</button>
+              <button
+>>>>>>> origin/main
                 className="btn btn-secondary btn-sm mx-3"
                 onClick={handleLogin}
               >

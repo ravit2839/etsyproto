@@ -42,7 +42,11 @@ export default function ShopScreen() {
           </div>
           <div className="col-md-6">
             <button
+<<<<<<< HEAD
                 style={{backgroundColor:"burlywood", color:"black"}}
+=======
+               style={{backgroundColor:"burlywood", color:"black"}}
+>>>>>>> origin/main
               className="btn btn-primary"
               onClick={() => setShowItemModal(true)}
             >

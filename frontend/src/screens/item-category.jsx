@@ -3,7 +3,11 @@ import * as shopApi from "../apis/shop";
 import * as itemCategoryApi from "../apis/item-category";
 import useApi from "../hooks/use-api";
 import { useEffect, useState } from "react";
+<<<<<<< HEAD
 import { ServerError } from "../components";
+=======
+import { AppLoading, ServerError } from "../components";
+>>>>>>> origin/main
 import { Link } from "react-router-dom";
 
 export default function ItemCategoryScreen() {
@@ -20,7 +24,11 @@ export default function ItemCategoryScreen() {
     setNewAddedCateg(category);
   };
 
+<<<<<<< HEAD
   if (shopDetailApi.isLoading) return <></>;
+=======
+  if (shopDetailApi.isLoading) return <AppLoading />;
+>>>>>>> origin/main
 
   if (!shopDetailApi.data) {
     return (
@@ -55,7 +63,11 @@ function CreateNewCategory({ shop, onNewCategAdded }) {
     try {
       const res = await newCategoryApi.request({
         name: categName,
+<<<<<<< HEAD
         shopId: shop._id,
+=======
+        shopId: shop.id,
+>>>>>>> origin/main
       });
       const newCateg = res.data.category;
       onNewCategAdded(newCateg);
@@ -93,7 +105,11 @@ function CategoryList({ shop, newCateg }) {
   const categoryiesApi = useApi(itemCategoryApi.getAllCategories);
 
   useEffect(() => {
+<<<<<<< HEAD
     categoryiesApi.request(shop._id).then((res) => {
+=======
+    categoryiesApi.request(shop.id).then((res) => {
+>>>>>>> origin/main
       const categories = res.data.categories;
       setCategories(categories);
     });
@@ -106,7 +122,11 @@ function CategoryList({ shop, newCateg }) {
     }
   }, [newCateg]);
 
+<<<<<<< HEAD
   if (categoryiesApi.isLoading) return <></>;
+=======
+  if (categoryiesApi.isLoading) return <AppLoading />;
+>>>>>>> origin/main
 
   return (
     <table className="table table-bordered table-hover">
@@ -118,8 +138,13 @@ function CategoryList({ shop, newCateg }) {
       </thead>
       <tbody>
         {categories.map((categ) => (
+<<<<<<< HEAD
           <tr key={categ._id}>
             <td>{categ._id}</td>
+=======
+          <tr key={categ.id}>
+            <td>{categ.id}</td>
+>>>>>>> origin/main
             <td>{categ.name}</td>
             {/* <td>
               <i className="fa fa-times pointer" aria-hidden="true" />

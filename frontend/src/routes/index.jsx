@@ -1,6 +1,9 @@
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
+<<<<<<< HEAD
 import HomeScreen from "../screens/home";
+=======
+>>>>>>> origin/main
 import PrivateRoute from "./private-route";
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./routes-list";
 

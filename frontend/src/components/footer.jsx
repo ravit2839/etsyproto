@@ -3,6 +3,7 @@ import {
   Navbar,
   Container,
   Nav,
+<<<<<<< HEAD
   NavDropdown,
   Form,
   FormControl,
@@ -13,6 +14,11 @@ import { Link } from "react-router-dom";
 import { useSearchContext } from "../contexts/search-context";
 import "./css/footer.css"
 
+=======
+  Modal,
+} from "react-bootstrap";
+import "./css/footer.css"
+>>>>>>> origin/main
 const countryObj = {
   ind: "India",
   usa: "USA",
@@ -37,7 +43,14 @@ export default function AppFooter({ hasFixedBottom = true }) {
       expand="lg"
       className={`mt-5 ${hasFixedBottom ? "fixed-bottom" : ""}`}
     >
+<<<<<<< HEAD
       <Container className= "myFoot">
+=======
+      <Container className="myFoot">
+        {/* <Navbar.Brand href="#" as={Link} to="/">
+          Etsy
+        </Navbar.Brand> */}
+>>>>>>> origin/main
         <Nav className="mx-auto">
           <Nav.Link onClick={() => setSelectCountry(true)}>
             Choose Country
@@ -78,7 +91,11 @@ function CountryModal(props) {
           >
             <option value="">Choose country</option>
             <option value="usa">USA</option>
+<<<<<<< HEAD
             <option value="ind">INDIA</option>
+=======
+            <option value="ind">India</option>
+>>>>>>> origin/main
           </select>
         </div>
       </Modal.Body>

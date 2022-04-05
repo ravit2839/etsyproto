@@ -1,25 +1,29 @@
 {
+  "aws": {
+    "accessKey": "SENSITIVE DATA",
+    "secretKey": "SENSITIVE DATA",
+    "bucketName": "SENSITIVE DATA"
+  },
   "db": {
     "username": "root",
-    "password": "Qwerty16",
+    "password": "",
     "database": "epsy",
     "host": "database-2.cquwnyamdglz.us-east-1.rds.amazonaws.com",
     "port": 3306,
+
     "dialect": "mysql",
     "logging": false,
+
     "define": {
       "freezeTableName": true
-    },
-    "pool": {
-      "max": 500,
-      "min": 0,
-      "acquire": 30000,
-      "idle": 10000
     },
 
     "forceSync": false
   },
   "jwt": {
     "secret": "my-secret-key"
+  },
+  "mongoDB": {
+    "connString": "mongodb+srv://ravit2839:pwwCOrEuQRWAfzWv@cluster0.iqcjh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   }
 }

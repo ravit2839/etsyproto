@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import * as shopApi from "../../apis/shop";
 import useApi from "../../hooks/use-api";
+<<<<<<< HEAD
+=======
+import { getImageURL } from "../../utils/app";
+import AppLoading from "../loading";
+>>>>>>> origin/main
 import ServerError from "../server-error";
 
 export default function UpdateShop({ onShopReceived }) {
@@ -12,13 +17,20 @@ export default function UpdateShop({ onShopReceived }) {
   useEffect(() => {
     shopDetail.request().then((res) => {
       const shop = res.data.shop;
+<<<<<<< HEAD
       console.log("__shop: ", shop)
+=======
+>>>>>>> origin/main
       setShopname(shop.name);
       onShopReceived(shop);
     });
   }, []);
 
+<<<<<<< HEAD
   if (shopDetail.isLoading) return <></>;
+=======
+  if (shopDetail.isLoading) return <AppLoading />;
+>>>>>>> origin/main
 
   if (!shopDetail.data) return <></>;
 
@@ -43,7 +55,11 @@ export default function UpdateShop({ onShopReceived }) {
     await updateShop.request({
       name: shopname,
       image: shopImg,
+<<<<<<< HEAD
       id: shopDetail.data._id,
+=======
+      id: shopDetail.data.id,
+>>>>>>> origin/main
     });
   };
 
@@ -67,7 +83,11 @@ export default function UpdateShop({ onShopReceived }) {
             {(shopImg || shopDetail.data.image) && (
               <img
                 src={
+<<<<<<< HEAD
                   shopImg ? localImageURL() : shopDetail.data.image
+=======
+                  shopImg ? localImageURL() : getImageURL(shopDetail.data.image)
+>>>>>>> origin/main
                 }
                 alt="Shop Image"
                 width="200"
@@ -85,9 +105,15 @@ export default function UpdateShop({ onShopReceived }) {
             onChange={handleChangeInput}
           />
         </div>
+<<<<<<< HEAD
         {/* {updateShop.isLoading && <AppLoading />} */}
         {!updateShop.isLoading && (
           <button style={{backgroundColor:"burlywood", color:"black"}} className="btn btn-success mt-3" onClick={handleSubmit}>
+=======
+        {updateShop.isLoading && <AppLoading />}
+        {!updateShop.isLoading && (
+          <button  style={{backgroundColor:"burlywood", color:"black"}} className="btn btn-success mt-3" onClick={handleSubmit}>
+>>>>>>> origin/main
             Save Changes
           </button>
         )}

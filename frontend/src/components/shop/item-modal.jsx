@@ -21,6 +21,7 @@ export default function ItemModal(props) {
   useEffect(() => {
     if (props.shop) {
       console.log("shop: ", props.shop);
+<<<<<<< HEAD
       allCategories.request(props.shop._id);
     }
   }, [props.shop]);
@@ -55,6 +56,20 @@ export default function ItemModal(props) {
     }
   };
 
+=======
+      allCategories.request(props.shop.id);
+    }
+  }, [props.shop]);
+
+  if (allCategories.isLoading) return <AppLoading />;
+
+  if (!allCategories.data) return <></>;
+
+  const handleImg = (e) => {
+    setFeaturedImg(e.target.files[0]);
+  };
+
+>>>>>>> origin/main
   const handleSubmit = async ({ formValues }) => {
     console.log("formvalues: ", formValues);
 
@@ -62,7 +77,11 @@ export default function ItemModal(props) {
       ...formValues,
       image: itemImgs,
       featured: featuredImg,
+<<<<<<< HEAD
       shopId: props.shop._id,
+=======
+      shopId: props.shop.id,
+>>>>>>> origin/main
     };
 
     try {
@@ -85,6 +104,7 @@ export default function ItemModal(props) {
           validationSchema={itemSchema}
           handleSubmit={handleSubmit}
         >
+<<<<<<< HEAD
           {/* <div className="my-3">
             {localImageURLs().map((imgURL) => (
               <img
@@ -117,13 +137,27 @@ export default function ItemModal(props) {
               />
             )}
           </div>
+=======
+          <div className="my-3">
+          </div>
+          {allCategories.data.length === 0 && (
+            <div className="alert alert-info mt-3">
+              <p>Create a category first</p>
+              <Link to="/item-category">Create Item Category</Link>
+            </div>
+          )}
+>>>>>>> origin/main
           <div className="form-group">
             <label htmlFor="item_image">Item Image</label>
             <input
               type="file"
               className="form-control"
               id="item_image"
+<<<<<<< HEAD
               onChange={handleFeaturedImg}
+=======
+              onChange={handleImg}
+>>>>>>> origin/main
             />
           </div>
           <div className="form-group mt-3">
@@ -136,6 +170,7 @@ export default function ItemModal(props) {
             />
             <FieldError field="name" />
           </div>
+<<<<<<< HEAD
           {allCategories.data.length === 0 && (
             <div className="alert alert-info mt-3">
               <p>Please Create Item Category First</p>
@@ -145,6 +180,17 @@ export default function ItemModal(props) {
           {allCategories.data.length > 0 && (
             <div className="form-group mt-3">
               <label htmlFor="category">Select Category</label>
+=======
+          {/* {allCategories.data.length === 0 && (
+            <div className="alert alert-info mt-3">
+              <p>Create a category first</p>
+              <Link to="/item-category">Create Item Category</Link>
+            </div>
+          )} */}
+          {allCategories.data.length > 0 && (
+            <div className="form-group mt-3">
+              <label for="category">Select Category</label>
+>>>>>>> origin/main
               <Field
                 component="select"
                 className="form-control"
@@ -153,7 +199,11 @@ export default function ItemModal(props) {
               >
                 <option>------</option>
                 {allCategories.data.map((categ) => (
+<<<<<<< HEAD
                   <option key={categ._id} value={categ._id}>
+=======
+                  <option key={categ.id} value={categ.id}>
+>>>>>>> origin/main
                     {categ.name}
                   </option>
                 ))}
@@ -191,12 +241,19 @@ export default function ItemModal(props) {
             />
             <FieldError field="quantity" />
           </div>
+<<<<<<< HEAD
           {newItem.isLoading && <AppLoading />}
+=======
+>>>>>>> origin/main
           <button
             style={{backgroundColor:"burlywood", color:"black"}}
             type="submit"
             className="btn btn-success mt-3"
+<<<<<<< HEAD
             disabled={allCategories.data.length === 0 || newItem.isLoading}
+=======
+            disabled={allCategories.data.length === 0}
+>>>>>>> origin/main
           >
             Save Changes
           </button>

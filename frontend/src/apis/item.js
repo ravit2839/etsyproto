@@ -8,12 +8,17 @@ export function getItem(id) {
   return api.get("/item/" + id);
 }
 
+<<<<<<< HEAD
 export function updateItem(id, itemPayload) {
   return api.patch("/item/" + id, itemPayload);
 }
 
 export function deleteItem(id) {
   return api.delete("/item/" + id);
+=======
+export function updateItem(id, price) {
+  return api.patch("/item/" + id, { price });
+>>>>>>> origin/main
 }
 
 export function filterItems(filterOptions) {
@@ -43,4 +48,8 @@ function setFieldsToFormData(fd, fields) {
       fd.append(key, fields[key]);
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main

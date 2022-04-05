@@ -24,7 +24,11 @@ export function FavProvider({ children }) {
     const favs = res.data.favorites;
     const favObj = {};
     favs.forEach((fv) => {
+<<<<<<< HEAD
       favObj[fv._id] = fv;
+=======
+      favObj[fv.id] = fv;
+>>>>>>> origin/main
     });
     setFavItem(favObj);
   };
@@ -35,6 +39,7 @@ export function FavProvider({ children }) {
 
     if (isFav) {
       apiFunc = favApi.removeFromFav;
+<<<<<<< HEAD
       newFavItem = omit(favItem, item._id);
     } else {
       apiFunc = favApi.addToFav;
@@ -42,6 +47,15 @@ export function FavProvider({ children }) {
     }
 
     await apiFunc(item._id);
+=======
+      newFavItem = omit(favItem, item.id);
+    } else {
+      apiFunc = favApi.addToFav;
+      newFavItem = { ...favItem, [item.id]: item };
+    }
+
+    await apiFunc(item.id);
+>>>>>>> origin/main
     setFavItem(newFavItem);
     callerFunc();
   };

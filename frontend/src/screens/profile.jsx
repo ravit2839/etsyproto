@@ -53,21 +53,35 @@ export default function ProfileScreen() {
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">
+<<<<<<< HEAD
                 <label htmlFor="profile_image" >Profile Picture</label>
+=======
+                <label htmlFor="profile_image">Profile Picture</label>
+>>>>>>> origin/main
                 <input
                   type="file"
                   className="form-control"
                   id="profile_image"
+<<<<<<< HEAD
+=======
+                  // value={profileImg}
+>>>>>>> origin/main
                   onChange={handleChangeProfileImage}
                 />
               </div>
             </div>
             <div className="col-md-6">
               <img
+<<<<<<< HEAD
                 src={isLocalImg ? localImageURL() : user.image}
                 alt="Profile Image"
                 width="140px"
                 height="130px"
+=======
+                src={isLocalImg ? localImageURL() : getImageURL(user.image)}
+                alt="Profile Image"
+                width="200"
+>>>>>>> origin/main
               />
             </div>
           </div>
@@ -148,10 +162,20 @@ export default function ProfileScreen() {
             </Field>
             <FieldError field="country" />
           </div>
+<<<<<<< HEAD
           {api.isLoading && <AppLoading />}
           <button style={{backgroundColor:"burlywood", color:"black"}}  type="submit" className="btn btn-success mt-3 mb-5">
               Save Changes
             </button>        
+=======
+
+          {api.isLoading && <AppLoading />}
+          {!api.isLoading && (
+            <button  style={{backgroundColor:"burlywood", color:"black"}} type="submit" className="btn btn-success mt-3 mb-5">
+              Save Changes
+            </button>
+          )}
+>>>>>>> origin/main
         </AppForm>
       </div>
     </BaseLayout>

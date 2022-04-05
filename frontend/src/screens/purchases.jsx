@@ -1,15 +1,26 @@
+<<<<<<< HEAD
 import { Card, Button, ListGroup, ListGroupItem } from "react-bootstrap";
 import { range } from "underscore";
+=======
+import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+>>>>>>> origin/main
 import { Link } from "react-router-dom";
 import moment from "moment";
 import BaseLayout from "../layouts/base";
 import * as purchaseApi from "../apis/purchase";
 import useApi from "../hooks/use-api";
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { AppLoading } from "../components";
 import { getImageURL } from "../utils/app";
 import "./css/purchases.css"
 
+=======
+import { useEffect } from "react";
+import { AppLoading } from "../components";
+import { getImageURL } from "../utils/app";
+import "./css/purchases.css"
+>>>>>>> origin/main
 export default function PurchasesScreen() {
   return (
     <BaseLayout hasSearch={false}>
@@ -23,25 +34,36 @@ export default function PurchasesScreen() {
 }
 
 function PurchaseItems() {
+<<<<<<< HEAD
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [purchases, setPurchases] = useState([]);
 
+=======
+>>>>>>> origin/main
   const allPurchasesApi = useApi(purchaseApi.getAllPurchases, {
     keyExtractor: "purchases",
   });
 
   useEffect(() => {
+<<<<<<< HEAD
     allPurchasesApi.request().then((res) => {
       setPurchases(res.data.purchases);
     });
   }, []);
 
   if (allPurchasesApi.isLoading) return <></>;
+=======
+    allPurchasesApi.request();
+  }, []);
+
+  if (allPurchasesApi.isLoading) return <AppLoading />;
+>>>>>>> origin/main
 
   if (!allPurchasesApi.data) return <></>;
 
   if (allPurchasesApi.data.length === 0) {
+<<<<<<< HEAD
     return <div className="alert alert-info">No Purchases </div>;
   }
 
@@ -60,10 +82,19 @@ function PurchaseItems() {
         onChangeFilter={(val) => setItemsPerPage(val)}
       />
       {getPaginatedItems().map((purchaseItem, i) => (
+=======
+    return <div className="alert alert-info">No Purchases</div>;
+  }
+
+  return (
+    <div className="row g-3">
+      {allPurchasesApi.data.map((purchaseItem, i) => (
+>>>>>>> origin/main
         <div className="col-md-4">
           <PurchaseItem key={i} item={purchaseItem} />
         </div>
       ))}
+<<<<<<< HEAD
       <div className="d-flex justify-content-center">
         <Pagination
           items={purchases}
@@ -97,10 +128,13 @@ function PaginationFilter({ onChangeFilter, current }) {
           </option>
         ))}
       </select>
+=======
+>>>>>>> origin/main
     </div>
   );
 }
 
+<<<<<<< HEAD
 function Pagination({ items, currentPage, itemsPerPage, handlePagination }) {
   const itemLength = Math.ceil(items.length / itemsPerPage);
   const paginationList = range(1, itemLength + 1);
@@ -136,6 +170,14 @@ function PurchaseItem({ item }) {
   return (
     <Card style={{marginTop:"10px"}}>
       <Card.Img variant="top" src={item.itemImage} />
+=======
+function PurchaseItem({ item }) {
+  
+
+  return (
+    <Card className="imgr">
+      <Card.Img variant="top" src={getImageURL(item.itemImage)} />
+>>>>>>> origin/main
       <ListGroup className="list-group-flush">
         <ListGroupItem>
           <p>
@@ -157,7 +199,11 @@ function PurchaseItem({ item }) {
           <p>
             <span className="fw-bold">Shop Name:</span>
             <span className="mx-2">
+<<<<<<< HEAD
               <Link to={`/shop/${item.shopId._id}`} style={{color: 'black'}}>{item.shopId.name}</Link>
+=======
+              <Link to={`/shop/${item.Shop.id}`} style={{ color: 'black' }}>{item.Shop.name}</Link>
+>>>>>>> origin/main
             </span>
           </p>
         </ListGroupItem>
@@ -175,6 +221,7 @@ function PurchaseItem({ item }) {
             </span>
           </p>
         </ListGroupItem>
+<<<<<<< HEAD
         {item.isGift && (
           <>
             <ListGroupItem>
@@ -197,3 +244,9 @@ function PurchaseItem({ item }) {
     </Card>
   );
 }
+=======
+      </ListGroup>
+    </Card>
+  );
+}
+>>>>>>> origin/main
