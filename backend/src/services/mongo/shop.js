@@ -1,28 +1,31 @@
-const db = require("../models");
-const Exceptions = require("../utils/custom-exceptions");
+const db = require("../../db");
+const Exceptions = require("../../utils/custom-exceptions");
 
 async function isShopAvailable(shopname) {
-  return await db.Shop.findOne({ where: { name: shopname } });
+  return await db.Shop.findOne({ name: shopname });
 }
 
 async function isShopExistsForUser(userId) {
-  return await db.Shop.findOne({ where: { userId } });
+  return await db.Shop.findOne({ userId });
 }
 
 async function singleShopDetail(shopId) {
-  return await db.Shop.findByPk(shopId, { include: db.Item });
+  const items = await db.Item.find({ shopId });
+  const shop = await db.Shop.findById(shopId);
+  return { shop, items };
 }
 
 async function getShopDetails(userId) {
-  return await db.Shop.findOne({ where: { userId } });
+  return await db.Shop.findOne({ userId });
 }
 
 async function getShopItems(shopId) {
-  return db.Item.findAll({ where: { shopId }, include: db.ItemCategory });
+  return db.Item.find({ shopId }).populate("categoryId");
 }
 
 async function createNewShop(shopFields) {
-  const shopInDb = await db.Shop.findOne({ where: { name: shopFields.name } });
+  const shopInDb = await db.Shop.findOne({ name: shopFields.name });
+
   if (shopInDb) {
     throw new Exceptions.BadRequestException("Shop already exists");
   }
@@ -32,13 +35,17 @@ async function createNewShop(shopFields) {
 }
 
 async function updateShop(shopId, shopFields) {
-  const shopInDb = await db.Shop.findByPk(shopId);
+  const shopInDb = await db.Shop.findById(shopId);
   if (!shopInDb) {
     throw new Exceptions.NotFoundException("Shop not found");
   }
 
   try {
-    return await db.Shop.update({ ...shopFields }, { where: { id: shopId } });
+    return await db.Shop.findOneAndUpdate(
+      { _id: shopId },
+      { ...shopFields },
+      { upsert: true }
+    );
   } catch (err) {
     throw new Exceptions.BadRequestException("Shop already exists");
   }
