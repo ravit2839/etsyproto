@@ -1,10 +1,17 @@
+const fs = require("fs/promises");
 const validate = require("../utils/validations");
 const validations = require("../utils/validations/user");
-const userService = require("../services/user");
+const userService = require("../services/mogno/user");
+const uploadToS3 = require("../utils/aws/upload-to-s3");
 
 async function updateProfile(req, res) {
   const cleanFields = await validate(validations.profileSchema, req.body);
-  cleanFields["image"] = req.file ? req.file.filename : "";
+  if (req.file) {
+    console.log("req.file: ", req.file);
+    const s3Object = await uploadToS3(req.file);
+    await fs.unlink(req.file.path);
+    cleanFields["image"] = s3Object.Location;
+  }
 
   const userFields = {};
   for (let key in cleanFields) {
@@ -14,7 +21,7 @@ async function updateProfile(req, res) {
   }
 
   const user = await userService.updateProfile(req.user.id, userFields);
-  res.send({ message: "Success", user });
+  res.send({ message: "Successfully update the profile", user, id: user._id });
 }
 
 module.exports = { updateProfile };
