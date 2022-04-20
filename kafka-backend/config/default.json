@@ -1,0 +1,29 @@
+{
+  "aws": {
+    "accessKey": "AKIAX7YCAZIR7RYKC4QG",
+    "secretKey": "/9mm5W9Wi+1C8ONxJ6b+DTxUGkhTjtEPdug07DM7",
+    "bucketName": "sample-ecommerece-app"
+  },
+  "db": {
+    "username": "root",
+    "password": "",
+    "database": "ecommerece",
+    "host": "localhost",
+    "port": 3306,
+
+    "dialect": "mysql",
+    "logging": false,
+
+    "define": {
+      "freezeTableName": true
+    },
+
+    "forceSync": false
+  },
+  "jwt": {
+    "secret": "my-secret-key"
+  },
+  "mongoDB": {
+    "connString": "mongodb+srv://ravit2839:pwwCOrEuQRWAfzWv@cluster0.iqcjh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  }
+}
